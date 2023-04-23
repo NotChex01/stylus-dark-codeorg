@@ -1,0 +1,457 @@
+/* ==UserStyle==
+@name         dark codeorg
+@version      1.0.0
+@namespace    notchex01
+@description  Dark mode for a few pages on code.org. Currently working on App Lab.
+@author       MagicChex
+==/UserStyle== */
+@-moz-document url-prefix("https://studio.code.org/projects/applab/") {
+/*
+NOTICE: I am no expert in css; please excuse my skills.
+
+Title: App Lab Dark Mode
+Author: MagicChex
+Description: Dark Mode for code.org App Lab
+*/
+/* codeorg color padlette from color.scss */
+
+:root {
+    --black: #000;
+    --background_black: #121416;
+    --dark_gray: #2D3139;
+    --darkest_gray: #292F36;
+    --dark_slate_gray: #282c34;
+    --darkest_slate_gray: #25292d;
+    --dark_charcoal: #4d575f;
+    --charcoal: #5b6770;
+    --light_gray: #949ca2;
+    --lighter_gray: #c6cacd;
+    --lightest_gray: #e7e8ea;
+    --background_gray: #f2f2f2;
+    --dimgray: #696969;
+    --white: #fff;
+    --default_blue: #3670b3;
+
+    --dark_teal: #0094a3;
+    --teal: #00adbc;
+    --applab_button_teal: #1abc9c;
+    --light_teal: #59cad3;
+    --lightish_teal: #80d6de;
+    --lighter_teal: #a6e3e8;
+    --lightest_teal: #d9f3f5;
+
+    --purple: #7665a0;
+    --light_purple: #a69bc1;
+    --lighter_purple: #cfc9de;
+    --lightest_purple: #ebe8f1;
+
+    --cyan: #0094ca;
+    --light_cyan: #59b9dc;
+    --lighter_cyan: #a6daed;
+    --lightest_cyan: #d9eff7;
+    --almost_white_cyan: #f5fcff;
+
+    --orange: #ffa400;
+    --light_orange: #ffc459;
+    --lighter_orange: #ffe0a6;
+    --lightest_orange: #fff2d9;
+    --dark_orange: #ff8600;
+
+    --green: #b9bf15;
+    --light_green: #d1d567;
+    --lighter_green: #e7e9ad;
+    --lightest_green: #f5f5dc;
+    --highlight_green: #8afc9b;
+
+    --yellow: #ffb81d;
+    --light_yellow: #ffdb74;
+    --lighter_yellow: #ffebb5;
+    --lightest_yellow: #fff7df;
+
+    --goldenrod: #daa520;
+
+    --header_text: $white;
+    --bkgnd_color: $teal;
+    --inset_color: $lighter_gray;
+    --dark_color: $purple;
+    --hdr_color: $purple;
+
+    /* Some extra colors. */
+    --red: #c00;
+    --lightest_red: #fcc;
+    --dark_red: #d62911;
+    --realgreen: #008000;
+    --realyellow: #ff0;
+    --mustardyellow: #efcd1c;
+    --twitter_blue: #00aced;
+    --facebook_blue: #3b5998;
+    --dark_blue: #00647f;
+    --blockly_flyout_gray: #ddd;
+    --default_text: #333;
+    --border_gray: #bbb;
+    --border_light_gray: #d8d8d8;
+    --table_header: #ececec;
+    --table_light_row: #fcfcfc;
+    --table_dark_row: #f4f4f4;
+
+    /* Progress colors. */
+    --level_submitted: $purple;
+    --level_perfect: rgb(14, 190, 14);
+    --level_passed: rgb(159, 212, 159);
+    --level_attempted: $realyellow;
+    --level_not_tried: #fefefe;
+    --level_current: $orange;
+    --level_review_rejected: $red;
+    --level_review_accepted: rgb(11, 142, 11); /* TODO: $level_passed; */
+    --assessment: $cyan;
+    --workspace_running_background: #e5e5e5;
+
+    /* Experimental Sprite Lab validation colors. */
+    --dark_purple: #682A77;
+    --bright_green: #0ebe0e;
+    --neon_pink: #e9118f;
+
+    /* Links (used in apps). */
+    --link_color: #0596ce;
+
+    /* Shadow. */
+    --shadow: rgba(0, 0, 0, 0.3);
+
+    /* Colors that are taken from bootstrap, and not necessarily part of our core theme. */
+    --bootstrap_button_blue: #337ab7;
+    --bootstrap_button_red: #d9534f;
+    --bootstrap_error_background: #f2dede;
+    --bootstrap_error_text: #b94a48;
+    --bootstrap_v3_error_text:  #a94442;
+    --bootstrap_error_border: #ebccd1;
+    --bootstrap_warning_background: #fcf8e3;
+    --bootstrap_warning_text: #c09853;
+    --bootstrap_warning_border: #faebcc;
+    --bootstrap_border_color: #cccccc;
+    --bootstrap_success_background: #dff0d8;
+    --bootstrap_success_text: #468847;
+    --bootstrap_success_border: #d6e9c6;
+
+    /* Colors taken from droplet, not part of our core theme. */
+    --droplet_light_green: #d3e965;
+    --droplet_blue: #64b5f6;
+    --droplet_bright_blue: #19c3e1;
+    --droplet_yellow: #fff176;
+    --droplet_orange: #ffb74d;
+    --droplet_red: #f78183;
+    --droplet_cyan: #4dd0e1;
+    --droplet_pink: #f57ac6;
+    --droplet_purple: #bb77c7;
+    --droplet_green: #68d995;
+    --droplet_white: $white;
+
+    /* Oceans: deep blue background. */
+    --oceans_deep_blue: rgb(2, 0, 28);
+    --music_black: #000;
+
+    /* ===----===----===---- Phase 1 Colors: ----===----===----=== */
+    /* Brand */
+    --brand_primary_light: #ABDFE5;
+    --brand_primary_default: #009EB0;
+    --brand_primary_dark: #008291;
+
+    --brand_secondary_light: #E0D1EC;
+    --brand_secondary_default: #9660BF;
+    --brand_secondary_dark: #6F488E;
+
+    --brand_accent_default: #ED6060;
+
+    /*Product */
+    --product_affirmative_default: #3EA33E;
+
+    --product_negative_light: #FDEBE9;
+    --product_negative_default: #E5311A;
+    --product_negative_dark: #AA2513;
+
+    --product_caution_default: #F9CB28;
+
+    --product_information_default: #007ACC;
+
+    /* Neutral */
+    --neutral_white: #FFFFFF;
+    --neutral_light: #F7F8FA;
+    --neutral_dark10: #EAEBEB;
+    --neutral_dark20: #D4D5D7;
+    --neutral_dark30: #BFC1C3;
+    --neutral_dark40: #A9ACAF;
+    --neutral_dark50: #94979B;
+    --neutral_dark60: #7F8286;
+    --neutral_dark70: #6A6E73;
+    --neutral_dark80: #54595E;
+    --neutral_dark90: #3F444B;
+    --neutral_dark: #292F36;
+
+    /*Brands */
+    --google_brand_color: #0F9D58;
+    --microsoft_brand_color: #FFB900;
+    --facebook_brand_color: #3B5998;
+    
+    
+    
+    
+    
+    /*
+    MagicChex's Dark Padlette:
+        Feel free to change the colors to your liking or look at the CSS code to edit specific parts
+    */
+    --default_font_color: var(--white);
+    
+    --headerBackground: var(--black);
+    --headerTextColor: #625454;
+    --headerButtonColor: #343030;
+    --websiteBackground: rgb(50, 50, 50);
+    
+    --modeButtonColor1: #191717;
+    --modeButtonColor2: rgb(65 69 72);
+    
+    --textCommentColor: grey;
+    --textParenthesisColor: green;
+    --textBuiltInFunctionsColor: orange;
+    --textStringColor: skyblue;
+    --textUniversalColor: lightslategray;
+    --textUserFunctionColor: #710F80;
+    --textSubFunctionsColor: aliceblue;
+    --textJavascriptFunctionsColor: snow;
+    --textNumberColor: pink;
+    
+    --codeBlockInputColor: var(--darkest_slate_gray);
+    --codeBlockFontColor: var(--white);
+    --codeBlockMainColor: rgb(15, 15, 15, 1);
+    --codeBlockOnEventLightColor: rgb(147, 147, 249);
+    --codeBlockOnEventDarkColor: var(--codeBlockOnEventLightColor);
+}
+
+/* Loading Icon */
+.Select-loading {
+    border: 2px solid #b32222;
+}
+
+/* Header CSS */
+.header-wrapper .container, .header-wrapper .header_button {
+    background-color: var(--headerBackground) !important;
+    color: var(--headerTextColor) !important;
+}
+
+.project_edit, .project_share, .project_remix, .create_menu, .user_menu {
+    color: var(--headerTextColor) !important;
+    background-color: var(--headerButtonColor) !important;
+    border: 2px solid var(--headerButtonColor) !important;
+}
+
+.help_icon {
+    color: var(--headerButtonColor) !important;
+}
+
+#hamburger #hamburger-contents {
+    background-color: var(--headerBackground) !important;
+}
+#hamburger #hamburger-contents .item a, #hamburger #hamburger-contents .hamburger-expandable-item {
+    color: var(--headerTextColor) !important;
+}
+#hamburger #hamburger-icon span, #hamburger #hamburger-icon span::before, #hamburger #hamburger-icon span::after {
+    background-color: var(--headerButtonColor); 
+}
+
+/* Main CSS */
+.wrapper {
+    background-color: var(--websiteBackground) !important;
+}
+/* Code, Design, Data Mode CSS*/
+#codeModeButton[style*="inset"], #designModeButton[style*="inset"], #dataModeButton[style*="inset"] {
+    background-color: var(--modeButtonColor1) !important;
+    border-color: var(--modeButtonColor2) !important;
+}
+#codeModeButton:not([style*=inset]), #designModeButton:not([style*=inset]), #dataModeButton:not([style*=inset]) {
+    background-color: var(--modeButtonColor2) !important;
+    border-color: var(--modeButtonColor1) !important;
+}
+/* Screen Dropdown */
+#screenSelector {
+    background-color: var(--modeButtonColor1);
+    color: var(--default_font_color) !important;
+    border: 1px solid var(--modeButtonColor2) !important;
+}
+
+/* Phone */
+.gdZHdKVKWRVFcZpoGQg3 {
+    background-color: #161D25 !important;
+}
+div#visualization.with_padding {
+    border: 1px solid #2E3339 !important;
+}
+button.launch, button#resetButton.blocklyLaunch,  button#resetButton.blocklyLaunch:hover {
+    background-color: black;
+    border: 1px solid #2E3339;
+}
+button.launch>img {
+ display: none;
+}
+button.blocklyLaunch div {
+ text-align:center;
+ margin-top:0px;
+ float: none;
+}
+/* Code Workspace */
+#codeWorkspace {
+    border-style: none !important;
+}
+#codeModeHeaders {
+    background-color: var(--headerBackground) !important;
+    color: var(--headerTextColor) !important;;
+}
+
+#hide-toolbox-icon, .VVG6EAovSM6SB3sZxyQg {
+    color: var(--headerTextColor) !important;
+}
+.E65uU5qEZjZEq7MK8tJT ,.E65uU5qEZjZEq7MK8tJT span {
+    color: var(--headerTextColor) !important;
+    background-color: var(--headerBackground) !important;
+}
+.E65uU5qEZjZEq7MK8tJT {
+    border: 1px solid var(--headerTextColor) !important;
+}
+.visualizationResizeBar {
+    color: var(--default_font_color) !important;
+    background-color: gray !important;
+}
+
+/* Code Area */
+.ace_gutter, .ace-chrome .ace_gutter, .droplet-gutter { /* Line Bar */
+    background-color: #161D25 !important;
+    color: var(--default_font_color);
+}
+.ace-chrome .ace_gutter-active-line { /* Line Bar Active Line */
+    background-color: var(--headerBackground);
+}
+.ace-chrome .ace_marker-layer .ace_active-line { /* Code Area Active Line */
+    background: rgb(0,0,0,0.3);
+}
+.ace-chrome, .droplet-main-canvas { /* Code Area Background */
+    background-color: var(--modeButtonColor1) !important;
+}
+.ace_gutter-cell.ace_error, .droplet-gutter-line.droplet_error { /* Error Icon */
+    /*
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAgCAMAAADKfsO6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAGUExURf8wPgAAAPB2JRcAAAACdFJOU/8A5bcwSgAAAAlwSFlzAAAPYQAAD2EBqD+naQAAAFFJREFUKFOtzEEKwCAQQ9HO/S9dMomtDiqR9oNi3sKrFUjvt6q5GcdPyqTFPc3NMHg8TVspczRXbaGtbm+U4zH1XSWM81BxyQwdHHk6/wEacQMPEAGN055XmAAAAABJRU5ErkJggg==');
+    */
+}
+
+/* Text Code Coloring */
+.ace-chrome .ace_comment {
+    color: var(--textCommentColor);
+}
+.ace-chrome .ace_lparen, .ace_rparen {
+    color: var(--textParenthesisColor);
+}
+.ace-chrome .ace_identifier {
+    color: var(--textBuiltInFunctionsColor);
+}
+.ace-chrome .ace_string {
+    color: var(--textStringColor);
+}
+.ace-chrome {
+    color: var(--textUniversalColor);
+}
+.ace-chrome .ace_entity.ace_name.ace_function {
+    color: var(--textUserFunctionColor);
+}
+.ace-chrome .ace_support.ace_function {
+    color: var(--textSubFunctionsColor);
+}
+.ace-chrome .ace_variable { /* */
+    color: var(--textJavascriptFunctionsColor);
+}
+.ace-chrome .ace_constant.ace_numeric {
+    color: var(--textNumberColor);
+}
+/* Toolbox */
+.droplet-palette-header {
+    background-color: var(--modeButtonColor1) !important;
+}
+.droplet-palette-canvas {
+    background-color: var(--modeButtonColor1) !important;
+}
+
+/* code blocks */
+.droplet-socket-path {
+    fill: var(--codeBlockInputColor);
+}
+.droplet-palette-canvas {
+    fill: var(--codeBlockFontColor);
+} 
+.droplet-main-canvas text {
+ fill: var(--codeBlockFontColor)
+}
+.droplet-hover-div.tooltipstered .droplet-block-path, .droplet-main-canvas .droplet-block-path .droplet-background-path, .droplet-button-path .droplet-background-path, .droplet-main-canvas .droplet-background-path {
+    fill: var(--codeBlockOnEventMainColor);
+}
+.droplet-block-path>.droplet-light-bevel-path{
+    fill:#0d0d0d
+}
+
+/* Debug Bar */
+.DVJLyoONrSeRIf2K_Qho/* Show Debug Commands Arrow Button*/, .UYlyAKMlB80hkQSGTm23/* Show Debug Commands Text Color*/ {
+    color: var(--headerTextColor);
+} 
+.WtJqpXnab8KOtUiNpztm/* Debug Background */ {
+    background-color: var(--headerBackground);
+}
+#debugResizeBar #debug-buttons .debuger_button {
+    color: var(--headerTextColor);
+}
+#debug-buttons .debugger_button {
+    
+}
+
+/* Language & Copyright */
+.small-footer-base,#copyright-flyout,#more-menu {
+    background-color: #161D25;
+}
+.small-footer-base .copyright-button button, .small-footer-base .i18n-dropdown-container, .i18n-dropdown-container #localeForm select#locale, .i18n-dropdown-container span.globe-icon {
+    background-color: #161D25;
+    color: var(--default_font_color)
+}
+/* Popups */
+.modal {
+    background-color: var(--headerBackground);
+    color: var(--headerTextColor) !important;
+}
+}
+
+@-moz-document url-prefix("https://studio.code.org/") {
+/*
+Title: Dark Project Page.
+Author: MagicChex
+Description: Darkifies and removes the banner, project ideas, and start new project.
+*/
+body, .container {
+    background-color: #292F36;
+}
+
+div#projects-page div[class*="banner"], div#projects-page div[class="container main"]>div {
+    display: none;
+}
+div#projects-page div[class="main container"] div[data-radium]>div {
+    background-color: #292F36 !important;
+}
+td {
+    background-color: #43464a !important;
+    color: white !important;
+}
+td div>a:hover {
+    color: slateblue !important;
+}
+.ui-personal-projects-publish-button {
+    color: #292F36 !important;
+    background-color: transparent !important;
+    border: 1px solid white !important;
+}
+.modal, .modal div>div, .modal div, .modal div h2 {
+    color: white !important;
+    background-color: #292F36 !important;
+}
+}
